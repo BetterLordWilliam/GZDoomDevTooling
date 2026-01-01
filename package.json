@@ -1,0 +1,49 @@
+{
+  "name": "gzdoomdevtooling",
+  "displayName": "GZDoomDevTooling",
+  "description": "Tooling for GZDoom development (test)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "GZDoom Dev Tooling",
+      "type": "object",
+      "properties": {
+        "gzdoomdevtooling.gzdoomenginepath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the GZDoom engine executable."
+        }
+      }
+    },
+    "commands": [{
+      "command": "gzdoomdevtooling.getEnginePath",
+      "title": "GZDoom Dev Tooling: Retrieve GZDoom Engine Path"
+    },
+    {
+      "command": "gzdoomdevtooling.setEnginePath",
+      "title": "GZDoom Dev Tooling: Set GZDoom Engine Path"
+    }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.107.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.39.1",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
