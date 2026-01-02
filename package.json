@@ -23,6 +23,15 @@
           "light": "./images/zscript-icon-light.png",
           "dark": "./images/zscript-icon-dark.png"
         }
+      },
+      {
+        "id": "lump",
+        "aliases": [ "lump", "Lump", "LUMP" ],
+        "extensions": [ ".lmp", ".lump" ],
+        "icon": {
+          "light": "./images/lump-icon-light.png",
+          "dark": "./images/lump-icon-dark.png"
+        }
       }
     ],
     "configuration": {
