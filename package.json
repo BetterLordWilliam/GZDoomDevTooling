@@ -20,6 +20,11 @@
           "type": "string",
           "default": "",
           "description": "Path to the GZDoom engine executable."
+        },
+        "gzdoomdevtooling.launchargs": {
+          "type": "string",
+          "default": "",
+          "description": "Additional command line arguments to pass when launching GZDoom."
         }
       }
     },
@@ -30,6 +35,10 @@
     {
       "command": "gzdoomdevtooling.setEnginePath",
       "title": "GZDoom Dev Tooling: Set GZDoom Engine Path"
+    },
+    {
+      "command": "gzdoomdevtooling.launchGZDoom",
+      "title": "GZDoom Dev Tooling: Launch GZDoom"
     }
     ]
   },

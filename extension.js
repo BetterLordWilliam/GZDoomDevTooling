@@ -1,9 +1,5 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+const path = require('path');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -31,6 +27,29 @@ function activate(context) {
 		let globalUpdate = await vscode.window.showQuickPick(['Yes', 'No'], { placeHolder: 'Set GZDoom Engine Path Globally?' });
 
 		await vscode.workspace.getConfiguration('gzdoomdevtooling').update('gzdoomenginepath', newEnginePath, globalUpdate === 'Yes');
+	}));
+
+	context.subscriptions.push(vscode.commands.registerCommand('gzdoomdevtooling.launchGZDoom', async () => {
+		let enginePath = vscode.workspace.getConfiguration('gzdoomdevtooling').get('gzdoomenginepath');
+		let launchArgs = vscode.workspace.getConfiguration('gzdoomdevtooling').get('launchargs');
+
+		if (!enginePath) {
+			vscode.window.showErrorMessage('Cannot launch GZDoom: Engine path is not set.');
+			return;
+		}
+
+		let engineExecPathSegs = enginePath.split(path.sep);
+		engineExecPathSegs = engineExecPathSegs.map((seg) => {
+			return (seg.includes(' ')) ? `"${seg}"` :  seg;
+		});
+		let engineExecPath = engineExecPathSegs.join(path.sep);
+
+		let terminal = vscode.window.createTerminal('GZDoom Launch');
+
+		vscode.window.showInformationMessage('Launching GZDoom Engine...');
+
+		terminal.sendText(`${engineExecPath} ${launchArgs}`);
+		terminal.show();
 	}));
 }
 
