@@ -12,6 +12,19 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "zscript",
+        "aliases": [ "ZScript", "zscript" ],
+        "extensions": [ ".zs", ".zsc" ],
+        "configuration": "./language_configurations/zscript_configuration.json",
+        "mimetypes": [ "text/x-zscript" ],
+        "icon": {
+          "light": "./images/zscript-icon-light.png",
+          "dark": "./images/zscript-icon-dark.png"
+        }
+      }
+    ],
     "configuration": {
       "title": "GZDoom Dev Tooling",
       "type": "object",

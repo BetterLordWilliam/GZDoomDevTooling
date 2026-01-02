@@ -1,0 +1,10 @@
+{
+    "$schema": "vscode://schemas/language-configuration",
+    "comments": {
+        "lineComment": {
+            "comment": "//",
+            "noIndent": false
+        },
+        "blockComment": [ "/*", "*/" ]
+    }
+}
